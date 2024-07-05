@@ -22,6 +22,18 @@ void preorder(node *root){
         preorder(root->right);
     }
 }
+void kthnode(node *root,int k){
+if(root==NULL){
+    return ;
+}
+if(k==0){
+    cout<<root->val;
+}
+else{
+    kthnode(root->left,k-1);
+    kthnode(root->right,k-1);
+}
+}
 int main(){
 node * root=new node(5);
 node * node1=new node(4);
@@ -37,5 +49,7 @@ root->right=node5;
 inorder(root);
 cout<<endl;
 preorder(root);
+cout<<endl;
+kthnode(root,3);
 return 0;
 }
